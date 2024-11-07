@@ -1,0 +1,25 @@
+%% M-wave Correlation
+% Ernesto Bedoy
+% 27 October 2020
+%
+% Correlate M-waves
+
+function [high_corr, corr_x] = Correlation(num_chan, xSwp_Mwave_Tot, bad_chan, fs, num_stim_intensities)
+
+if isempty(bad_chan)
+    bad_chan = 0;
+end
+
+%% Find M-wave correlations 
+for intensity = 1:num_stim_intensities
+    for iCh = 1:num_chan
+        current_x(:,iCh,:) = xSwp_Mwave_Tot{intensity}(:,:,iCh);
+    end
+    for iTrial =1:size(current_x,3)
+        corr_x{intensity,iTrial} = corrcoef(current_x(:,:,iTrial)); % correlate channels
+        matrix = zeros(num_chan,num_chan); % create empty matrix
+        matrix(corr_x{intensity,iTrial}>=.9 & corr_x{intensity,iTrial}<1)=1; % put 1 in maxtrix where correlation is > .9 and < 1
+        high_corr{intensity,iTrial} = matrix;
+    end
+    clear current_x
+end
