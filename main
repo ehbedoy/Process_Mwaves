@@ -273,6 +273,21 @@ close all
 Filename = sprintf('RC_Mwave'); 
 save(Filename,'RC_Mwave') % save RC max amplitudes
 
+%% Correlate M-waves
 
+% Monopolar
+[high_corr_mono, corr_x_mono] = Correlation(setup.num_chan, xSwp_Mwave_Tot2, num_stim_intensities);
+Filename = sprintf('corr_x_mono'); save(Filename,'corr_x_mono');
+Filename = sprintf('high_corr_mono'); save(Filename,'high_corr_mono');
+
+% Bipolar
+[high_corr_D1, corr_x_D1] = CV_by_trial(setup.num_chan-8, xSwp_Mwave_Tot2_D1, num_stim_intensities);
+Filename = sprintf('corr_x_D1'); save(Filename,'corr_x_D1');
+Filename = sprintf('high_corr_D1'); save(Filename,'high_corr_D1');
+
+% Tripolar
+[high_corr_D2, corr_x_D2] = CV_by_trial(setup.num_chan-16, xSwp_Mwave_Tot2_D2, num_stim_intensities);
+Filename = sprintf('corr_x_D2'); save(Filename,'corr_x_D2');
+Filename = sprintf('high_corr_D2'); save(Filename,'high_corr_D2');
 
 
