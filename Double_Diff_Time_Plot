@@ -4,7 +4,7 @@
 %
 % Plots Tripolar Times Series  
 
-function Double_Diff_Time_Plot_good_trials(window, intensities, num_stim_intensities, xSwp_Mwave_Tot2_D2, xSwp_Hreflex_Tot2_D2, tSwp_Tot, xSwp_tot_Tot2_D2, xlin, xlin2, xlin3)
+function Double_Diff_Time_Plot(window, intensities, num_stim_intensities, xSwp_Mwave_Tot2_D2, xSwp_Hreflex_Tot2_D2, tSwp_Tot, xSwp_tot_Tot2_D2, xlin, xlin2, xlin3)
 
 %% Plot M-wave Time Series
 nRows = 8; % number of rows (medial-laterally)
