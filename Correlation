@@ -4,11 +4,7 @@
 %
 % Correlate M-waves
 
-function [high_corr, corr_x] = Correlation(num_chan, xSwp_Mwave_Tot, bad_chan, fs, num_stim_intensities)
-
-if isempty(bad_chan)
-    bad_chan = 0;
-end
+function [high_corr, corr_x] = Correlation(num_chan, xSwp_Mwave_Tot, num_stim_intensities)
 
 %% Find M-wave correlations 
 for intensity = 1:num_stim_intensities
